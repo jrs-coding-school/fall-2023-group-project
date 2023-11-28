@@ -4,12 +4,10 @@
  */
 exports.up = function(knex) {
     return knex.schema.createTable('packs', (table) => {
-        table.increments('id').notNullable()
+        table.increments('id').primary()
         table.string('name').notNullable()
         table.string('code').unique()
-        table.decimal('price', 8, 2).unique()
-        table.timestamps('created_at').defaultTo(knex.fn.now())
-        table.timestamp('updated_at').defaultTo(knex.fn.now())
+        table.decimal('price', 8, 2)
       })
     };
 

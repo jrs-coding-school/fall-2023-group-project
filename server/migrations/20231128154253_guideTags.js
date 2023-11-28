@@ -3,17 +3,17 @@
  * @returns { Promise<void> }
  */
 exports.up = function(knex) {
-    return knex.schema.createTable('deckTags', (table) => {
+    return knex.schema.createTable('guideTags', (table) => {
         table.increments('id').primary()
-        table.integer('deckId').notNullable().references('id').inTable('decks').onDelete('CASCADE')
-        table.string('tag')
+        table.integer('guideId').notNullable().references('id').inTable('guides').onDelete('CASCADE')
+        table.string('tag').notNullable()
       })
-    };
+};
 
 /**
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
 exports.down = function(knex) {
-  return knex.schema.dropTable('deckTags')
+    return knex.schema.dropTable('guideTags');
 };

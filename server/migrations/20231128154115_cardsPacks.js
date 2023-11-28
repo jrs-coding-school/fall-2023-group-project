@@ -5,10 +5,9 @@
 exports.up = function(knex) {
     return knex.schema.createTable('cardsPacks', (table) => {
         table.increments('id').notNullable()
-        table.integer('cardId').notNullable().references('id').inTable('yuGiOhCards')
-        table.integer('packId').notNullable().references('id').inTable('packs')
+        table.integer('cardId').notNullable().references('id').inTable('yuGiOhCards').onDelete('CASCADE')
+        table.integer('packId').notNullable().references('id').inTable('packs').onDelete('CASCADE')
         table.string('rarity')
-        table.timestamp('created_at').defaultTo(knex.fn.now());
       })
     };
 

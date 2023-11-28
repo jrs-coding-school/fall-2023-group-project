@@ -4,11 +4,18 @@
  */
 exports.up = function(knex) {
     return knex.schema.createTable('packRatings', (table) => {
-        table.increments('id').notNullable()
-        table.integer('packId').notNullable().references('id').inTable('packs')
-        table.integer('userId').notNullable().references('id').inTable('users')
+        table.increments('id').primary()
+        table.integer('packId')
+          .references('id')
+          .inTable('packs')
+          .onDelete('CASCADE')
+          .notNullable()
+        table.integer('userId')
+          .references('id')
+          .inTable('users')
+          .onDelete('CASCADE')
+          .notNullable()
         table.tinyint('score').notNullable()
-        table.timestamp('created_at').defaultTo(knex.fn.now());
       })
     }; 
 

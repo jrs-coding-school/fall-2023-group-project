@@ -3,11 +3,11 @@
  * @returns { Promise<void> }
  */
 exports.up = function(knex) {
-    return knex.schema.createTable('guideRating', (table) => {
+    return knex.schema.createTable('guideRatings', (table) => {
         table.increments('id').notNullable()
-        table.integer('guideId').notNullable().references('id').inTable('guides')
+        table.integer('guideId').notNullable().references('id').inTable('guides').onDelete('CASCADE')
+        table.integer('userId').notNullable().references('id').inTable('users').onDelete('CASCADE')
         table.tinyint('score')
-        table.timestamp('created_at').defaultTo(knex.fn.now());
       })
     };
 
@@ -16,5 +16,5 @@ exports.up = function(knex) {
  * @returns { Promise<void> }
  */
 exports.down = function(knex) {
-    return knex.schema.dropTable('guideRating');
+    return knex.schema.dropTable('guideRatings');
 };

@@ -5,10 +5,11 @@
 exports.up = function(knex) {
     return knex.schema.createTable('guides', (table) => {
         table.increments('id').notNullable()
-        table.integer('guideId').notNullable().references('id').inTable('guide')
-        table.integer('userId').notNullable().references('id').inTable('users')
-        table.tinyint('score')
-        table.timestamp('created_at').defaultTo(knex.fn.now());
+        table.integer('userId').notNullable().references('id').inTable('users').onDelete('CASCADE')
+        table.string('name').notNullable()
+        table.string('image')
+        table.boolean('isFavorite').defaultTo(false)
+        table.integer('views').defaultTo(0)
       })
     };
 
