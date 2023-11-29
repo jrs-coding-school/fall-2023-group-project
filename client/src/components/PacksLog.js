@@ -18,17 +18,17 @@ function PacksLog(props) {
     const [data, setData] = useState(null)
 
     useEffect(() => {
-        fetch(`http://localhost:9000`)
+        fetch(`http://localhost:9000/packs`)
         .then((response) => {
           if(!response.ok) {
             throw new Error('error fetching data!')
           }
           return response.json() // parse the response data
         })
-        .then((result) => setData(result)) // set state when the data received
+        .then((result) => setData(result.data)) // set state when the data received
         .catch((err) => err) // return the error
       }, []) //replace dependencies with the state variable names you want to trigger a re-run
-    //console.log(data)
+    // console.log(data)
 
       //** Component Logic
       if (!data) { // guard clause to prevent runtime errors
