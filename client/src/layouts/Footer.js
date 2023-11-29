@@ -1,11 +1,11 @@
-import { Box } from '@mui/material'
+import { Box } from "@mui/material";
 
-function Footer (props) {
+function Footer(props) {
   return (
     <Box>
-      Footer
+© EAZ. All rights reserved. Transforming futures through code.
     </Box>
-  )
+  );
 }
 
-export default Footer
+export default Footer;
