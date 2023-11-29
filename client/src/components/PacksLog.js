@@ -45,7 +45,7 @@ function PacksLog(props) {
         {data.map((element) => {
             return (
               <Grid item xs={4}>
-                {/* <Link to={`/packdetails/${element.id}`}>   */}
+                <Link to={`/packdetails/${element.id}`}>  
                   <Card>
                       <CardMedia
                     sx={{ height: 140 }}
@@ -60,7 +60,7 @@ function PacksLog(props) {
                     </Typography>
                   </CardContent>
                   </Card>
-                {/* </Link> */}
+                </Link>
               </Grid>
             )
         })}
