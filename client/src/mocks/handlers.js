@@ -1,19 +1,20 @@
-// ** MSW
-import { http, HttpResponse } from 'msw'
+// // ** MSW
+// import { http, HttpResponse } from 'msw'
 
-// ** Mock Data
-// import usersData from './data/users.json'
+// // ** Mock Data
+// // import usersData from './data/users.json'
+// import packs from './data/packs.json'
+// //The base url of the API, can be changed in the .env file
+// const baseUrl = process.env.REACT_APP_API_URL || 'http://localhost:9000'
 
-//The base url of the API, can be changed in the .env file
-const baseUrl = process.env.REACT_APP_API_URL || 'http://localhost:9000'
+// export const handlers = [
+// // This configures a Service Worker with the given request handlers.
+//   http.get('http://localhost:9000/', ({ request }) => {
+//     // Construct a URL instance out of the intercepted request.
+//     const url = new URL(request.url)
 
-export const handlers = [
-  // http.get(`${baseUrl}/users`, (info) => {
-  //   const {
-  //     request,
-  //     params,
-  //     cookies
-  //   } = info
-  //   return HttpResponse.json(usersData) // respond using a mocked JSON body
-  // }),
-]
+//     // Note that query parameters are potentially undefined. If no query is given
+//     // In that cause return everything
+//     return HttpResponse.json(packs)
+//   }),
+// ]

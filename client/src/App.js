@@ -9,6 +9,7 @@ import Layout from './layouts'
 import About from './views/About'
 import Home from './views/Home'
 import NotFound from './views/NotFound'
+import PacksLog from './components/PacksLog'
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
     <div className="App">
       <ThemeContextProvider>
         <Routes>
-          <Route path="/" element={<Layout/>}>
+          <Route path="/" element={<PacksLog/>}>
             <Route index element={<Home/>}/>
             <Route path="/about" element={<About/>}/>
             <Route path="*" element={<NotFound/>}/>
