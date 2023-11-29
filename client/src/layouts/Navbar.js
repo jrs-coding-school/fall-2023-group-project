@@ -15,8 +15,26 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
+import { Link } from "react-router-dom";
+import AdbIcon from "@mui/icons-material/Adb";
 
-const Search = styled("div")(({ theme }) => ({
+const StyledButtonLink = styled(Link)(({ theme }) => ({
+  //make navbar buttons look more like buttons rather than just text
+  textDecoration: "none",
+  color: "white",
+  padding: theme.spacing(1.5, 2),
+  margin: theme.spacing(0, 1),
+  borderRadius: "25px",
+  border: "2px groove white",
+
+  transition: "background-color 0.3s, color 0.3s",
+  "&:hover": {
+    backgroundColor: "white",
+    color: "black",
+  },
+}));
+
+const Search = styled("div")(({ theme }) => ({//searchbar
   position: "relative",
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
@@ -32,7 +50,7 @@ const Search = styled("div")(({ theme }) => ({
   },
 }));
 
-const SearchIconWrapper = styled("div")(({ theme }) => ({
+const SearchIconWrapper = styled("div")(({ theme }) => ({//wrapper for searchIcon
   padding: theme.spacing(0, 2),
   height: "100%",
   position: "absolute",
@@ -42,7 +60,7 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
   justifyContent: "center",
 }));
 
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
+const StyledInputBase = styled(InputBase)(({ theme }) => ({//styling
   color: "inherit",
   "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
@@ -56,8 +74,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function Navbar() { // material UI component
-  const [anchorEl, setAnchorEl] = React.useState(null); 
+export default function Navbar() {
+  // material UI component
+  const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
@@ -75,7 +94,6 @@ export default function Navbar() { // material UI component
     setAnchorEl(null);
     handleMobileMenuClose();
   };
-
 
   const menuId = "primary-search-account-menu";
   const renderMenu = (
@@ -145,54 +163,36 @@ export default function Navbar() { // material UI component
             <MenuIcon />
           </IconButton> */}
 
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: "none", sm: "block" }, marginRight: "20px" }}
-          >
-            Collection
-          </Typography>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: "none", sm: "block" }, marginRight: "20px" }}
-          >
-            Cards Catalogue
-          </Typography>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: "none", sm: "block" }, marginRight: "20px" }}
-          >
-            Decks
-          </Typography>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: "none", sm: "block" }, marginRight: "20px" }}
-          >
-            Guides
-          </Typography>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: "none", sm: "block" }, marginRight: "20px" }}
-          >
-            Rules
-          </Typography>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: "none", sm: "block" }, marginRight: "20px" }}
-          >
-            News
-          </Typography>
+          <StyledButtonLink to={"/collection"}>
+            <Typography variant="h6" noWrap>
+              Collection
+            </Typography>
+          </StyledButtonLink>
+          <StyledButtonLink to={"/cardsCatalogue"}>
+            <Typography variant="h6" noWrap>
+              Cards Catalogue
+            </Typography>
+          </StyledButtonLink>
+          <StyledButtonLink to={"/decks"}>
+            <Typography variant="h6" noWrap>
+              Decks
+            </Typography>
+          </StyledButtonLink>
+          <StyledButtonLink to={"/guides"}>
+            <Typography variant="h6" noWrap>
+              Guides
+            </Typography>
+          </StyledButtonLink>
+          <StyledButtonLink to={"/rules"}>
+            <Typography variant="h6" noWrap>
+              Rules
+            </Typography>
+          </StyledButtonLink>
+          <StyledButtonLink to={"/news"}>
+            <Typography variant="h6" noWrap>
+              News
+            </Typography>
+          </StyledButtonLink>
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
