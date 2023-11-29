@@ -17,10 +17,11 @@ function App() {
     <div className="App">
       <ThemeContextProvider>
         <Routes>
-          <Route path="/" element={<PacksLog/>}>
+          <Route path="/" element={<Layout/>}>
             <Route index element={<Home/>}/>
             <Route path="/about" element={<About/>}/>
             <Route path="*" element={<NotFound/>}/>
+            <Route path="/packs" element={<PacksLog/>}/>
           </Route>
         </Routes>
       </ThemeContextProvider>
