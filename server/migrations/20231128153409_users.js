@@ -9,6 +9,7 @@ exports.up = function(knex) {
         table.string('email').unique().notNullable()
         table.string('password').notNullable()
         table.text('bio')
+        table.enum('role', ['admin', 'user']).defaultTo('user').notNullable()
         table.timestamp('created_at').defaultTo(knex.fn.now())
       })
 };
