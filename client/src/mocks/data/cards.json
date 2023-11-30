@@ -1,0 +1,72 @@
+[
+    {
+      "id": 34541863,
+      "name": "A Cell Breeding Device",
+      "type": "Spell Card",
+      "description": "During each of your Standby Phases, put 1 A-Counter on 1 face-up monster your opponent controls.",
+      "race": "Continuous",
+      "archetype": "Alien",
+      "atk": null,
+      "def": null,
+      "level": null,
+      "attribute": null,
+      "image": "/assets/cards/A_Cell_Breeding_Device_Continuous_Spell_Card.jpg",
+      "price": "0.09"
+    },
+    {
+      "id": 64163367,
+      "name": "A Cell Incubator",
+      "type": "Spell Card",
+      "description": "Each time an A-Counter(s) is removed from play by a card effect, place 1 A-Counter on this card. When this card is destroyed, distribute the A-Counters on this card among face-up monsters.",
+      "race": "Continuous",
+      "archetype": "Alien",
+      "atk": null,
+      "def": null,
+      "level": null,
+      "attribute": null,
+      "image": "/assets/cards/A_Cell_Incubator_Continuous_Spell_Card.jpg",
+      "price": "0.09"
+    },
+    {
+      "id": 91231901,
+      "name": "A Cell Recombination Device",
+      "type": "Spell Card",
+      "description": "Target 1 face-up monster on the field; send 1 \"Alien\" monster from your Deck to the Graveyard, and if you do, place A-Counters on that monster equal to the Level of the sent monster. During your Main Phase, except the turn this card was sent to the Graveyard: You can banish this card from your Graveyard; add 1 \"Alien\" monster from your Deck to your hand.",
+      "race": "Quick-Play",
+      "archetype": "Alien",
+      "atk": null,
+      "def": null,
+      "level": null,
+      "attribute": null,
+      "image": "/assets/cards/A_Cell_Recombination_Device_Quick-Play_Spell_Card.jpg",
+      "price": "0.08"
+    },
+    {
+      "id": 73262676,
+      "name": "A Cell Scatter Burst",
+      "type": "Spell Card",
+      "description": "Select 1 face-up \"Alien\" monster you control. Destroy it and distribute new A-Counters equal to its Level among your opponent's face-up monsters.",
+      "race": "Quick-Play",
+      "archetype": "Alien",
+      "atk": null,
+      "def": null,
+      "level": null,
+      "attribute": null,
+      "image": "/assets/cards/A_Cell_Scatter_Burst_Quick-Play_Spell_Card.jpg",
+      "price": "0.13"
+    },
+    {
+      "id": 98319530,
+      "name": "Infernoble Arms - Almace",
+      "type": "Spell Card",
+      "description": "While this card is equipped to a monster: You can equip 1 \"Infernoble Arms\" Equip Spell from your Deck or GY, except \"\"Infernoble Arms - Almace\"\", to 1 appropriate monster you control, then destroy this card. If this card is sent to the GY because the equipped monster is sent to the GY: You can target 1 of your FIRE Warrior monsters that is banished or in your GY; add it to your hand. You can only use 1 \"\"Infernoble Arms - Almace\"\" effect per turn, and only once that turn.",
+      "race": "Equip",
+      "archetype": "Infernoble Arms",
+      "atk": null,
+      "def": null,
+      "level": null,
+      "attribute": null,
+      "image": "/assets/cards/Infernoble_Arms_-_Almace_Equip_Spell_Card.jpg",
+      "price": "0.00"
+    }
+]

@@ -9,6 +9,7 @@ import Layout from './layouts'
 import About from './views/About'
 import Home from './views/Home'
 import NotFound from './views/NotFound'
+import CardCatalog from './views/CardCatalog'
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Route index element={<Home/>}/>
             <Route path="/about" element={<About/>}/>
             <Route path="*" element={<NotFound/>}/>
+            <Route path="/cardCatalog" element={<CardCatalog/>}/>
           </Route>
         </Routes>
       </ThemeContextProvider>
