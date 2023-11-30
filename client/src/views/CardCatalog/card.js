@@ -34,7 +34,7 @@ export default function YuCard() {
       if (!data) { // guard clause to prevent runtime errors
     return ( 
       <div>
-        <h1>Characters</h1>
+        <h1>Cards</h1>
         <div>Loading...</div>
       </div>
       )
@@ -54,7 +54,7 @@ export default function YuCard() {
                 <CardMedia
                   component="img"
                   height="250"
-                  image=""
+                  image={element.image}
                   alt="Pot of Greed"
                 />
                 <CardContent>

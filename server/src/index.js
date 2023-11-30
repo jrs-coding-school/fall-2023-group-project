@@ -23,6 +23,9 @@ app.use(express.json()) // for parsing application/json body
 // logging middleware
 app.use(pathLogger)
 
+// serve static images
+app.use('/assets', express.static('assets'))
+
 // use the routes
 const routes = require('./routes/allRoutes')
 app.use('/', routes)
