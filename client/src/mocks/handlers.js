@@ -15,6 +15,6 @@ export const handlers = [
       cookies
     } = info
 
-    return HttpResponse.json({message: 'packs found!', data: packsData.splice(0, 9)}) // respond using a mocked JSON body
+    return HttpResponse.json({message: 'packs found!', data: packsData.splice(0, 9), total: '9'}) // respond using a mocked JSON body
   }),
 ]
