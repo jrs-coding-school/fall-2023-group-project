@@ -23,7 +23,7 @@ app.use(express.json()) // for parsing application/json body
 // logging middleware
 app.use(pathLogger)
 
-// serve static images
+// serve static files
 app.use('/assets', express.static('assets'))
 
 // use the routes

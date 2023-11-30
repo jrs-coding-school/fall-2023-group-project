@@ -99,6 +99,32 @@ export const getAllUsers = async({page, limit}) => {
   return responseData
 }
 
+export const getAllPacks = async({page, limit}) => {
+
+  // build the query string
+  let query
+  
+  if (page) {
+    query = `page=${page}`
+  }
+
+  if (limit) {
+    query = `${query}&limit=${limit}`
+  }
+
+  const response = await fetch(`${baseUrl}/packs?${query}`, {
+    method: "GET",
+  })
+
+  const responseData = await response.json()
+
+  if (!response.ok) {
+    throw new Error(`Status Code: ${response?.status} - ${responseData?.message}`)
+  }
+
+  return responseData
+}
+
 export const getAllCards = async({page, limit}) => {
 
   // build the query string
@@ -112,8 +138,8 @@ export const getAllCards = async({page, limit}) => {
     query = `${query}&limit=${limit}`
   }
 
-  const response = await fetch(`${baseUrl}/cards?${query}`, {
-    method: "GET",
+const response = await fetch(`${baseUrl}/cards?${query}`, {
+   method: "GET",
   })
 
   const responseData = await response.json()
