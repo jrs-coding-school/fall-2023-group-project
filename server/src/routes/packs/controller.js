@@ -13,16 +13,11 @@ exports.showAll = async (req, res) => {
   
       // get allUsers from the database
       const allPacks = await findAll(query)
-        .then((packs) => {
-          // modify the resulting array to remove the passwords
-          return packs.map((packs) => {
-            // add the user to the new array
-            return packs
-          })
-        })
+
+      // console.log(allPacks)
   
       // return a response with allUsers
-      return res.status(200).json({message: 'packs found!', data: allPacks})
+      return res.status(200).json({message: 'packs found!', data: allPacks.data, total: allPacks.total})
     } catch (error) {
       console.log(error)
       return res.status(500).json({message: 'Internal Server Error'})

@@ -9,7 +9,7 @@ import Layout from './layouts'
 import About from './views/About'
 import Home from './views/Home'
 import NotFound from './views/NotFound'
-import PacksLog from './components/PacksLog'
+import Packs from './views/Packs'
 
 
 function App() {
@@ -20,8 +20,8 @@ function App() {
           <Route path="/" element={<Layout/>}>
             <Route index element={<Home/>}/>
             <Route path="/about" element={<About/>}/>
+            <Route path="/packs" element={<Packs/>}/>
             <Route path="*" element={<NotFound/>}/>
-            <Route path="/packs" element={<PacksLog/>}/>
           </Route>
         </Routes>
       </ThemeContextProvider>

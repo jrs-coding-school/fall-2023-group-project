@@ -1,7 +1,7 @@
 const knex = require('../../knex.js')
 
 exports.findAll = async ({page = 0, limit}) => {
-    const results = await knex('packs')
+    const data = await knex('packs')
       .select("*")
       .modify((queryBuilder) => {
         // conditionally add pagination only if a limit is set
@@ -10,6 +10,12 @@ exports.findAll = async ({page = 0, limit}) => {
           queryBuilder.offset(offset).limit(limit) 
         }
       })
-  
+
+    const total = await knex('packs').count('id')
+      .then((result) => {
+        return result[0].count
+      })
+    // console.log(total)
+    const results = {total, data}
     return results
   }
