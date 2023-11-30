@@ -10,7 +10,7 @@ import About from './views/About'
 import Home from './views/Home'
 import NotFound from './views/NotFound'
 import Login from './views/Login'
-
+import Register from './views/Register'
 
 function App() {
   return (
@@ -21,8 +21,8 @@ function App() {
             <Route index element={<Home/>}/>
             <Route path="/about" element={<About/>}/>
             <Route path="/login" element={<Login/>}/>
+            <Route path="/register" element={<Register/>}/>
             <Route path="*" element={<NotFound/>}/>
-      
           </Route>
         </Routes>
       </ThemeContextProvider>
