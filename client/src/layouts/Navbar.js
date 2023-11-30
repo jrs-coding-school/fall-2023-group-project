@@ -1,4 +1,3 @@
-import * as React from "react";
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -16,11 +15,11 @@ import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@mui/material";
 import { isUserLoggedIn } from "../utility/utils";
-
-
+import HomeIcon from '@mui/icons-material/Home';
+import { fetchMe } from "../utility/api"
 
 const StyledButtonLink = styled(Link)(({ theme }) => ({
   //make navbar buttons look more like buttons rather than just text
@@ -83,12 +82,26 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function Navbar() {
   // material UI component
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(isUserLoggedIn); // usestate for loggedIn or not
-
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(isUserLoggedIn()); // usestate for loggedIn or not
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  const [userId, setUserId] = useState(null);
+
+  useEffect(() => {
+    // check if user is logged in
+    if (isLoggedIn) {
+      // fetch user's id using user token
+      fetchMe()
+        .then((result) => {
+          console.log("fetchMe: ", result)
+          // set user id state variable with the user id from the fetch request
+          setUserId(result.data.id)
+        })
+    }
+
+  }, [])
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -124,9 +137,9 @@ export default function Navbar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-    <MenuItem component={Link} to={`/profile`} onClick={handleMenuClose}>
-      Profile
-    </MenuItem>
+      <MenuItem component={Link} to={`/profile/${userId}`} onClick={handleMenuClose}>
+        Profile
+      </MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
       {/* Logout Button */}
       <MenuItem
@@ -139,6 +152,7 @@ export default function Navbar() {
       </MenuItem>
     </Menu>
   );
+
 
   const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
@@ -185,6 +199,11 @@ export default function Navbar() {
           >
             <MenuIcon />
           </IconButton> */}
+          <StyledButtonLink to={"/"}>
+            <Typography variant="h6" noWrap>
+              <HomeIcon sx={{ fontSize: 25 }} />
+            </Typography>
+          </StyledButtonLink>
           <StyledButtonLink to={"/collection"}>
             <Typography variant="h6" noWrap>
               Collection
@@ -225,7 +244,7 @@ export default function Navbar() {
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
-          {!isLoggedIn ? (//render login/register button when logged out
+          {!isLoggedIn ? ( //render login/register button when logged out
             <StyledButtonLink to={"/login"}>
               <Typography variant="h6" noWrap>
                 Login/Register

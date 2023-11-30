@@ -70,6 +70,24 @@ exports.showById = async (req, res) => {
   }
 }
 
+exports.showMe = async (req, res) => {// controller for '/users/me' route
+  try {
+    const user = req.user
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    delete user.password;
+
+    // Return the user data
+    return res.status(200).json({ message: 'User found', data: user });
+  } catch (error) {
+    console.error('Error retrieving user:', error);
+    return res.status(500).json({ message: 'Internal Server Error' });
+  }
+};
+
 exports.updateById = async (req, res) => {
 
   try {
@@ -173,7 +191,7 @@ exports.login = async (req, res) => {
 
     // bcrypt.compare takes the plain-text password and re-hashes 
       // then compares to the hash in the database
-    if (!user || !await bcrypt.compare(password, user.passwordHash)) {
+    if (!user || !await bcrypt.compare(password, user.password)) {
       // If the user isn't found or the password is incorrect, return an error
       return res.status(401).json({ message: 'Invalid username or password' })
     }
