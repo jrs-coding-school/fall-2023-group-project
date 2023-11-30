@@ -20,8 +20,8 @@ function App() {
           <Route path="/" element={<Layout/>}>
             <Route index element={<Home/>}/>
             <Route path="/about" element={<About/>}/>
+            <Route path="/cards" element={<CardCatalog/>}/>
             <Route path="*" element={<NotFound/>}/>
-            <Route path="/cardsCatalog" element={<CardCatalog/>}/>
           </Route>
         </Routes>
       </ThemeContextProvider>
