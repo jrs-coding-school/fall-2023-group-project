@@ -18,8 +18,8 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Button } from "@mui/material";
 import { isUserLoggedIn } from "../utility/utils";
-import HomeIcon from '@mui/icons-material/Home';
-import { fetchMe } from "../utility/api"
+import HomeIcon from "@mui/icons-material/Home";
+import { fetchMe } from "../utility/api";
 
 const StyledButtonLink = styled(Link)(({ theme }) => ({
   //make navbar buttons look more like buttons rather than just text
@@ -93,15 +93,13 @@ export default function Navbar() {
     // check if user is logged in
     if (isLoggedIn) {
       // fetch user's id using user token
-      fetchMe()
-        .then((result) => {
-          console.log("fetchMe: ", result)
-          // set user id state variable with the user id from the fetch request
-          setUserId(result.data.id)
-        })
+      fetchMe().then((result) => {
+        console.log("fetchMe: ", result);
+        // set user id state variable with the user id from the fetch request
+        setUserId(result.data.id);
+      });
     }
-
-  }, [])
+  }, []);
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -137,10 +135,16 @@ export default function Navbar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem component={Link} to={`/profile/${userId}`} onClick={handleMenuClose}>
+      <MenuItem
+        component={Link}
+        to={`/profile/${userId}`}
+        onClick={handleMenuClose}
+      >
         Profile
       </MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem component={Link} to={`/collection`} onClick={handleMenuClose}>
+        My Collection
+      </MenuItem>
       {/* Logout Button */}
       <MenuItem
         onClick={() => {
@@ -152,7 +156,6 @@ export default function Navbar() {
       </MenuItem>
     </Menu>
   );
-
 
   const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
