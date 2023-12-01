@@ -17,7 +17,7 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Button } from "@mui/material";
-import { isUserLoggedIn } from "../utility/utils";
+import { isUserLoggedIn, clearToken } from "../utility/utils";
 import HomeIcon from "@mui/icons-material/Home";
 import { fetchMe } from "../utility/api";
 
@@ -116,6 +116,7 @@ export default function Navbar() {
   const handleLogout = () => {
     //logout function
     setIsLoggedIn(false);
+    clearToken()
   };
 
   const menuId = "primary-search-account-menu";
