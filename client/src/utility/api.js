@@ -125,6 +125,21 @@ export const getAllPacks = async({page, limit}) => {
   return responseData
 }
 
+export const getPackId = async(id) => {
+
+  const response = await fetch(`${baseUrl}/packs/${id}`, {
+    method: "GET",
+  })
+
+  const responseData = await response.json()
+
+  if (!response.ok) {
+    throw new Error(`Status Code: ${response?.status} - ${responseData?.message}`)
+  }
+
+  return responseData
+}
+
 export const getAllCards = async({page, limit}) => {
 
   // build the query string

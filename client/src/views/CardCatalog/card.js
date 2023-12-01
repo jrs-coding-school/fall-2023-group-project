@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea, CardActions } from '@mui/material';
 import {Link} from 'react-router-dom'
 import Grid from '@mui/material/Grid';
-import {useState, useEffect} from 'react'
+import {useState, useEffect, Fragment} from 'react'
 import { getAllCards } from "../../utility/api";
 import Pagination from '@mui/material/Pagination';
 

@@ -13,6 +13,7 @@ import CardCatalog from './views/CardCatalog'
 import Packs from './views/Packs'
 import Login from './views/Login'
 import Register from './views/Register'
+import PackDetails from './views/PackDetails'
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/cards" element={<CardCatalog/>}/>
             <Route path="/packs" element={<Packs/>}/>
             <Route path="/login" element={<Login/>}/>
+            <Route path="/packdetails/:id" element={<PackDetails/>}/>
             <Route path="/register" element={<Register/>}/>
             <Route path="*" element={<NotFound/>}/>
           </Route>

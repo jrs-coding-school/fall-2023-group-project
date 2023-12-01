@@ -19,3 +19,12 @@ exports.findAll = async ({page = 0, limit}) => {
     const results = {total, data}
     return results
   }
+
+  exports.findById = async (id) => {
+
+    const pack = await knex('packs')
+      .where('id', id)
+      .first('*')
+  
+    return pack
+  }
