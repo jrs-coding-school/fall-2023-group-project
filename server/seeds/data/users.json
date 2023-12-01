@@ -1,9 +1,27 @@
-[
-  {
+[{
     "id": 1,
-    "username": "nigel",
-    "email": "nigel@email.com",
+    "username": "hunter",
+    "email": "mbloxham0@ox.ac.uk",
     "password": "hunter2",
-    "role": "user"
-  }
-]
+    "role": "admin"
+  }, {
+    "id": 2,
+    "username": "crelph1",
+    "email": "drisdale1@hp.com",
+    "password": "password123"
+  }, {
+    "id": 3,
+    "username": "cthomasset2",
+    "email": "rcammiemile2@phpbb.com",
+    "password": "password123"
+  }, {
+    "id": 4,
+    "username": "jbermingham3",
+    "email": "pgemson3@discuz.net",
+    "password": "password123"
+  }, {
+    "id": 5,
+    "username": "iwordsley4",
+    "email": "scorballis4@cnbc.com",
+    "password": "password123"
+  }]
